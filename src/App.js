@@ -1,15 +1,15 @@
-import React, { Component } from 'react';
-import './index.css';
-class App extends Component {
+import React from 'react';
+import './App.css';
+import Dashboard from "./Dashboard";
+import { TestData } from "./TestData";
+function App() {
 
-  render() {
-    return (
-      <React.Fragment>
-        <div>
-          Hello
-        </div>
-      </React.Fragment>
-    );
-  }
+  return (
+    <div className="App">
+      <Dashboard
+        testData={TestData} />
+    </div>
+  );
 }
+
 export default App;
