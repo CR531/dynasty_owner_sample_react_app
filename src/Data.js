@@ -6,10 +6,15 @@ import {
     ExpansionPanelSummary,
     Divider,
     Grid,
-    withStyles
+    withStyles,
+    Paper,
+    TableContainer
 } from '@material-ui/core';
 import axios from 'axios';
-
+import Table from '@material-ui/core/Table';
+import TableBody from '@material-ui/core/TableBody';
+import TableCell from '@material-ui/core/TableCell';
+import TableRow from '@material-ui/core/TableRow';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 
 const styles = theme => ({
@@ -19,10 +24,12 @@ const styles = theme => ({
         marginRight: "4%",
         marginTop: "3%",
     },
+    table: {
+        minWidth: 600,
+        fontSize: "large"
+    },
     details: {
         alignItems: 'center',
-        marginTop: "1%",
-        marginBottom: "-2%",
     },
     secondaryHeading: {
         fontSize: "large",
@@ -37,7 +44,7 @@ const styles = theme => ({
         color: "black",
     },
     column1: {
-        flexBasis: '33.33%',
+        flexBasis: '99%',
         marginBottom: "-1%"
     }
 });
@@ -80,27 +87,79 @@ class Data extends Component {
                                     style={{ "background": "lightgrey" }}
                                 >
                                     <div className={classes.column1}>
-                                        <Grid container spacing={3}>
-                                            <Grid item xs={12} sm={3}>
+                                        <Grid container spacing={1}>
+                                            <Grid item xs={12} sm={1}>
                                                 <Typography className={classes.secondaryHeading}>Author </Typography>
                                             </Grid>
-                                            <Grid item xs={12} sm={9}>
+                                            <Grid item xs={12} sm={2}>
                                                 <Typography className={classes.dataHeading}>{(listValue.commit.author.name && listValue.commit.author.name !== "") ? listValue.commit.author.name : "N/A"} </Typography>
                                             </Grid>
-                                        </Grid>
-                                    </div>
-                                    <div className={classes.column1}>
-                                        <Grid container spacing={2}>
                                             <Grid item xs={12} sm={3}>
                                                 <Typography className={classes.secondaryHeading}>Commit Message : </Typography>
                                             </Grid>
-                                            <Grid item xs={12} sm={9}>
+                                            <Grid item xs={12} sm={6}>
                                                 <Typography className={classes.dataHeading}>{(listValue.commit.message && listValue.commit.message !== "") ? listValue.commit.message : "N/A"} </Typography>
                                             </Grid>
                                         </Grid>
                                     </div>
                                 </ExpansionPanelSummary>
                                 <Divider />
+                                <ExpansionPanelDetails className={classes.details}>
+                                    <TableContainer component={Paper}>
+                                        <Table className={classes.table}>
+                                            <TableBody>
+                                                <TableRow>
+                                                    <TableCell>Github Author Email</TableCell>
+                                                    <TableCell align="left">
+                                                        {(listValue.commit.author.email && listValue.commit.author.email !== "") ? listValue.commit.author.email : "N/A"}
+                                                    </TableCell>
+                                                </TableRow>
+                                                <TableRow>
+                                                    <TableCell>Code Cimmitted Date</TableCell>
+                                                    <TableCell align="left">
+                                                        {(listValue.commit.committer.date && listValue.commit.committer.date !== "") ? listValue.commit.committer.date : "N/A"}
+                                                    </TableCell>
+                                                </TableRow>
+                                                <TableRow>
+                                                    <TableCell>Github URL</TableCell>
+                                                    <TableCell align="left">
+                                                        {(listValue.author.html_url && listValue.author.html_url !== "") ? listValue.author.html_url : "N/A"}
+                                                    </TableCell>
+                                                </TableRow>
+                                                <TableRow>
+                                                    <TableCell>Commit URL</TableCell>
+                                                    <TableCell align="left">
+                                                        {(listValue.commit.url && listValue.commit.url !== "") ? listValue.commit.url : "N/A"}
+                                                    </TableCell>
+                                                </TableRow>
+                                                <TableRow>
+                                                    <TableCell>Github Repo URL</TableCell>
+                                                    <TableCell align="left">
+                                                        {(listValue.author.repos_url && listValue.author.repos_url !== "") ? listValue.author.repos_url : "N/A"}
+                                                    </TableCell>
+                                                </TableRow>
+                                                <TableRow>
+                                                    <TableCell>Node ID</TableCell>
+                                                    <TableCell align="left">
+                                                        {(listValue.node_id && listValue.node_id !== "") ? listValue.node_id : "N/A"}
+                                                    </TableCell>
+                                                </TableRow>
+                                                <TableRow>
+                                                    <TableCell>Author Node ID</TableCell>
+                                                    <TableCell align="left">
+                                                        {(listValue.author.node_id && listValue.author.node_id !== "") ? listValue.author.node_id : "N/A"}
+                                                    </TableCell>
+                                                </TableRow>
+                                                <TableRow>
+                                                    <TableCell>Committer ID</TableCell>
+                                                    <TableCell align="left">
+                                                        {(listValue.committer.id && listValue.committer.id !== "") ? listValue.committer.id : "N/A"}
+                                                    </TableCell>
+                                                </TableRow>
+                                            </TableBody>
+                                        </Table>
+                                    </TableContainer>
+                                </ExpansionPanelDetails>
                             </ExpansionPanel>
                         );
                     })}
