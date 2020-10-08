@@ -27,13 +27,17 @@ code {
   text-decoration: blink;
   color: black;
 }
-
+.list_item_text{
+  font-size: x-large;
+}
 .main_heading{
   font-size: xx-large;
   font-weight: 500;
   font-variant: all-petite-caps;
 }
-
+.menu_text {
+    color: "white",
+}
 .drawer {
   width: 280;
   flex-shrink: 0;

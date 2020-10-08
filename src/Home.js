@@ -22,8 +22,7 @@ class Home extends Component {
                     <li>Initially the app contains test data in a specific js file.</li>
                     <li>Main dashboard has 2 routes i.e Home and Data in the left permanent drawer</li>
                     <li>Home has what this application contains</li>
-                    <li>Data contains all the data pulled from the mock json file into the UI</li>
-                    <li>Data is pulled into expansion panels and dipicted onto UI</li>
+                    <li>Data contains all the data pulled from the certain users repository commits and showing it in a table </li>
                 </ol>
                 </p>
             </div>

@@ -6,15 +6,13 @@ import "./index.css";
 import Home from './Home';
 import Data from './Data';
 import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
-const drawerWidth = 280;
+const drawerWidth = 300;
 
 const styles = theme => ({
     root: {
         display: 'flex',
     },
     main_heading: {
-        fontSize: "x-large",
-        fontWeight: "500",
         fontVariant: "all-petite-caps",
     },
     appBar: {
@@ -28,6 +26,7 @@ const styles = theme => ({
     drawerPaper: {
         width: drawerWidth,
         marginTop: "3%",
+        background: "lightgrey",
     },
     content: {
         flexGrow: 1,
@@ -39,8 +38,6 @@ const styles = theme => ({
     },
     menu_text: {
         color: "white",
-        fontSize: "larger",
-        fontWeight: "700",
     },
     card_css: {
         marginTop: "5%",
@@ -99,7 +96,11 @@ class Mainmenu extends Component {
                                     <ListItemIcon>
                                         <HomeIcon />
                                     </ListItemIcon>
-                                    <ListItemText primary="Home" />
+                                    <ListItemText
+                                        style={{ "fontSize": "x-large" }}
+                                    >
+                                        Hello
+                                        </ListItemText>
                                 </ListItem>
                             </Link>
                             <Divider />
@@ -110,9 +111,10 @@ class Mainmenu extends Component {
                                     <ListItemIcon>
                                         <OrdersIcon />
                                     </ListItemIcon>
-                                    <ListItemText primary="Data" />
+                                    <ListItemText className={classes.menu_item_text} primary="Data" />
                                 </ListItem>
                             </Link>
+                            <Divider />
                         </List>
                     </Drawer>
                     <Card className={classes.card_css}>

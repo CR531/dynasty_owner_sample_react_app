@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import './index.css';
 import { Typography, Grid, Divider, AppBar } from '@material-ui/core';
-import { TestData } from "./TestData";
 import Mainmenu from './Mainmenu';
 
 class Dashboard extends Component {
@@ -23,9 +22,7 @@ class Dashboard extends Component {
                 </AppBar>
                 <Divider />
                 <div>
-                    <Mainmenu
-                        testData={TestData}
-                    />
+                    <Mainmenu />
                 </div>
             </React.Fragment>
         );
