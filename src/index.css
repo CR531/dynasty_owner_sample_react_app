@@ -11,3 +11,32 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+
+.title1 {
+  color: white;
+  font-size: 400%;
+  font-weight: 500;
+  font-variant: all-petite-caps;
+}
+.grid_css{
+  margin-top: 1%;
+  margin-bottom: 1%;
+}
+.link_css{
+  text-decoration: blink;
+  color: black;
+}
+
+.main_heading{
+  font-size: xx-large;
+  font-weight: 500;
+  font-variant: all-petite-caps;
+}
+
+.drawer {
+  width: 280;
+  flex-shrink: 0;
+  position: sticky;
+}
+
